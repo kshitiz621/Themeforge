@@ -1,0 +1,371 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Syne', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+:root {
+  --bg0: #08080d;
+  --bg1: #0f0f16;
+  --bg2: #16161f;
+  --bg3: #1c1c27;
+  --bg4: #232330;
+  --bdr: #252535;
+  --bdr2: #333348;
+  --acc: #7c6dfa;
+  --acc2: rgba(124, 109, 250, 0.18);
+  --acc3: rgba(124, 109, 250, 0.08);
+  --grn: #2ecc88;
+  --amb: #f0a500;
+  --red: #e05252;
+  --t1: #eeeef8;
+  --t2: #9090b0;
+  --t3: #55556a;
+  --r4: 4px;
+  --r6: 6px;
+  --r8: 8px;
+  --r12: 12px;
+  --r16: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg0);
+  color: var(--t1);
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bdr2);
+  border-radius: 2px;
+}
+
+.tf-input {
+  width: 100%;
+  padding: 7px 10px;
+  background: var(--bg0);
+  border: 1px solid var(--bdr);
+  border-radius: var(--r6);
+  color: var(--t1);
+  font-size: 12px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.tf-input:focus {
+  border-color: var(--acc);
+  box-shadow: 0 0 0 2px var(--acc2);
+}
+
+.tf-input::placeholder {
+  color: var(--t3);
+}
+
+textarea.tf-input {
+  resize: vertical;
+  min-height: 60px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.tf-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--t3);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.tf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 14px;
+  border-radius: var(--r6);
+  font-size: 12px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.tf-btn-primary {
+  background: var(--acc);
+  color: #fff;
+  box-shadow: 0 0 16px rgba(124, 109, 250, 0.3);
+}
+
+.tf-btn-primary:hover {
+  background: #8e80fb;
+  transform: translateY(-1px);
+}
+
+.tf-btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.tf-btn-ghost {
+  background: transparent;
+  color: var(--t2);
+  border: 1px solid var(--bdr);
+}
+
+.tf-btn-ghost:hover {
+  background: var(--bg3);
+  color: var(--t1);
+  border-color: var(--bdr2);
+}
+
+.tf-btn-green {
+  background: var(--grn);
+  color: #051a0e;
+}
+
+.tf-btn-green:hover {
+  background: #3ef09a;
+}
+
+.tf-btn-green:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.tf-btn-danger {
+  background: transparent;
+  color: var(--red);
+  border: 1px solid rgba(224, 82, 82, 0.3);
+}
+
+.tf-btn-danger:hover {
+  background: rgba(224, 82, 82, 0.1);
+}
+
+.tf-divider {
+  height: 1px;
+  background: var(--bdr);
+  margin: 12px 0;
+}
+
+.tf-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 7px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-family: var(--font-mono);
+}
+
+.tf-tag-acc {
+  background: var(--acc3);
+  color: var(--acc);
+  border: 1px solid rgba(124, 109, 250, 0.25);
+}
+
+.tf-tag-grn {
+  background: rgba(46, 204, 136, 0.1);
+  color: var(--grn);
+  border: 1px solid rgba(46, 204, 136, 0.25);
+}
+
+.tf-tag-amb {
+  background: rgba(240, 165, 0, 0.1);
+  color: var(--amb);
+  border: 1px solid rgba(240, 165, 0, 0.25);
+}
+
+.tf-card {
+  background: var(--bg2);
+  border: 1px solid var(--bdr);
+  border-radius: var(--r8);
+  transition: all 0.15s;
+}
+
+.tf-card:hover {
+  border-color: var(--acc);
+}
+
+.tf-section-wrap {
+  position: relative;
+  cursor: pointer;
+  transition: outline 0.1s;
+}
+
+.tf-section-wrap:hover .tf-section-badge {
+  opacity: 1;
+}
+
+.tf-section-badge {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  background: var(--acc);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-bottom-right-radius: 5px;
+  transition: opacity 0.15s;
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+  pointer-events: none;
+}
+
+.tf-tabs {
+  display: flex;
+  gap: 1px;
+  background: var(--bg0);
+  border-radius: var(--r6);
+  padding: 3px;
+}
+
+.tf-tab {
+  padding: 5px 12px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+  color: var(--t2);
+  border: none;
+  background: transparent;
+  font-family: var(--font-sans);
+}
+
+.tf-tab.active {
+  background: var(--bg3);
+  color: var(--t1);
+}
+
+.tf-tab:hover:not(.active) {
+  color: var(--t1);
+}
+
+.tf-notif {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  padding: 10px 18px;
+  border-radius: var(--r8);
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  animation: notifIn 0.25s ease;
+}
+
+@keyframes notifIn {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.tf-notif.success {
+  background: #071f11;
+  border: 1px solid rgba(46, 204, 136, 0.4);
+  color: var(--grn);
+}
+
+.tf-notif.error {
+  background: #1f0707;
+  border: 1px solid rgba(224, 82, 82, 0.4);
+  color: var(--red);
+}
+
+.tf-notif.info {
+  background: var(--bg3);
+  border: 1px solid var(--acc);
+  color: var(--acc);
+}
+
+.tf-pulse {
+  animation: pulse 1.5s ease infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.tf-slide {
+  animation: slideIn 0.2s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tf-code {
+  background: var(--bg0);
+  border: 1px solid var(--bdr);
+  border-radius: var(--r8);
+  padding: 12px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--t2);
+  overflow: auto;
+  line-height: 1.7;
+}
+
+.tf-toggle {
+  width: 34px;
+  height: 18px;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: background 0.2s;
+  position: relative;
+  border: 1px solid var(--bdr2);
+  flex-shrink: 0;
+}
+
+.tf-toggle-knob {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  position: absolute;
+  top: 2px;
+  transition: left 0.2s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
